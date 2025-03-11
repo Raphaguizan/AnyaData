@@ -11,8 +11,13 @@ public class PopUpText : MonoBehaviour
     private GameObject errorText;
     void Start()
     {
-        errorText.SetActive(false);
         gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        inputfield.text = "";
+        errorText.SetActive(false);
     }
 
     public void ButtonConfirm()
