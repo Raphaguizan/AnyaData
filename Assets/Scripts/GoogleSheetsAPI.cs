@@ -9,6 +9,8 @@ public class GoogleSheetsAPI : Singleton<GoogleSheetsAPI>
     [SerializeField]
     private string url;
 
+    public static Action<bool, Data> SendSuccessful;
+
     public static void SendData(string task, string eat = "", string suckle = "")
     {
         SendData(new Data(task, eat, suckle));
@@ -36,6 +38,8 @@ public class GoogleSheetsAPI : Singleton<GoogleSheetsAPI>
 
             yield return www.SendWebRequest();
 
+            SendSuccessful.Invoke(www.result == UnityWebRequest.Result.Success, data);
+            
             if (www.result == UnityWebRequest.Result.Success)
                 Debug.Log("Dados enviados com sucesso!");
             else
