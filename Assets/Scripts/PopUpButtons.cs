@@ -19,8 +19,6 @@ public class PopUpButtons : MonoBehaviour
 
     private void OnButtonClick(GameObject button)
     {
-        ButtonScript mybutton = button.GetComponent<ButtonScript>();
-        GoogleSheetsAPI.SendData(mybutton.Task, "", mybutton.Suckle);
         gameObject.SetActive(false);
     }
 

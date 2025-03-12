@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class SaveLoadData
 
     public static void SaveData(List<Data> data)
     {
-        string json = JsonUtility.ToJson(data, true);
+        string json = JsonUtility.ToJson(new DataList(data), true);
         File.WriteAllText(filePath, json);
         Debug.Log("Data saved: " + json);
     }
@@ -19,8 +20,8 @@ public class SaveLoadData
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            List<Data> data = JsonUtility.FromJson<List<Data>>(json);
-            Debug.Log("Data loaded: " + json);
+            List<Data> data = JsonUtility.FromJson<DataList>(json).data;
+            Debug.Log("Data loaded: " + data + "JSON: " + json);
             return data;
         }
         else
@@ -28,5 +29,12 @@ public class SaveLoadData
             Debug.LogWarning("No save file found.");
             return null;
         }
+    }
+
+    [Serializable]
+    public class DataList
+    {
+        public List<Data> data;
+        public DataList(List<Data> data) {  this.data = data; }
     }
 }

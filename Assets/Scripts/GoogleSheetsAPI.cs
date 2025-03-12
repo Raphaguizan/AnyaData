@@ -76,5 +76,9 @@ public class GoogleSheetsAPI : Singleton<GoogleSheetsAPI>
             this.eat = eat;
             this.suckle = suckle;
         }
+        public override string ToString()
+        {
+            return $"data_hora: {date_time}\ntarefa: {task}\ncomeu: {eat}\nmamou: {suckle}";
+        }
     }
 }
