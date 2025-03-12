@@ -3,6 +3,8 @@ using UnityEngine;
 public class ButtonScript : MonoBehaviour
 {
     [SerializeField]
+    private bool needConfirm = true;
+    [SerializeField]
     protected string task = "";
     [SerializeField]
     protected string eat = "";
@@ -15,8 +17,11 @@ public class ButtonScript : MonoBehaviour
 
     public virtual void ButtonCLick()
     {
-        //Debug.Log(buttonKey);
-        GoogleSheetsAPI.SendData(task, eat, suckle);
+        TaskData myData = new(task, eat, suckle);
+        if (needConfirm)
+            ConfirmPopUp.ShowPopUp(myData);
+        else
+            GoogleSheetsAPI.SendData(myData);
     }
 
 }

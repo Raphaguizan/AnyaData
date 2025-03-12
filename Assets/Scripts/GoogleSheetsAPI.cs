@@ -9,23 +9,25 @@ public class GoogleSheetsAPI : Singleton<GoogleSheetsAPI>
     [SerializeField]
     private string url;
 
-    public static Action<bool, Data> SendSuccessful;
+    [SerializeField]
+    private GameObject sendScreen;
 
-    public static void SendData(string task, string eat = "", string suckle = "")
+    public static Action<bool, TaskData> SendSuccessful;
+
+
+    private void Start()
     {
-        SendData(new Data(task, eat, suckle));
+        sendScreen.SetActive(false);
     }
-    public static void SendData(DateTime dateTime, string task, string eat = "", string suckle = "")
-    {
-        SendData(new Data(dateTime, task, eat, suckle));
-    }
-    public static void SendData(Data data)
+
+    public static void SendData(TaskData data)
     {
         Instance.StartCoroutine(Instance.SendDataCoroutine(data));
     }
 
-    IEnumerator SendDataCoroutine(Data data)
+    IEnumerator SendDataCoroutine(TaskData data)
     {
+        sendScreen.SetActive(true);
         string jsonData = JsonUtility.ToJson(data);
 
         Debug.Log("Enviando JSON: " + jsonData);
@@ -38,47 +40,13 @@ public class GoogleSheetsAPI : Singleton<GoogleSheetsAPI>
 
             yield return www.SendWebRequest();
 
+            sendScreen.SetActive(false);
             SendSuccessful.Invoke(www.result == UnityWebRequest.Result.Success, data);
             
             if (www.result == UnityWebRequest.Result.Success)
                 Debug.Log("Dados enviados com sucesso!");
             else
                 Debug.LogError("Erro ao enviar: " + www.error);
-        }
-    }
-
-    [Serializable]
-    public class Data
-    {
-        public string date_time;
-        public string task;
-        public string eat;
-        public string suckle;
-
-        public Data(string date_time, string task, string eat, string suckle)
-        {
-            this.date_time = date_time;
-            this.task = task;
-            this.eat = eat;
-            this.suckle = suckle;
-        }
-        public Data(DateTime dateTime, string task, string eat, string suckle)
-        {
-            this.date_time = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
-            this.task = task;
-            this.eat = eat;
-            this.suckle = suckle;
-        }
-        public Data(string task, string eat, string suckle)
-        {
-            this.date_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            this.task = task;
-            this.eat = eat;
-            this.suckle = suckle;
-        }
-        public override string ToString()
-        {
-            return $"data_hora: {date_time}\ntarefa: {task}\ncomeu: {eat}\nmamou: {suckle}";
         }
     }
 }

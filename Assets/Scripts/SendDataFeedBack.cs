@@ -1,7 +1,5 @@
 using UnityEngine;
 using TMPro;
-using Data = GoogleSheetsAPI.Data;
-
 public class SendDataFeedBack : MonoBehaviour
 {
     [SerializeField]
@@ -22,7 +20,7 @@ public class SendDataFeedBack : MonoBehaviour
         popUp.SetActive(false);
     }
 
-    private void FeedBack(bool val, Data data)
+    private void FeedBack(bool val, TaskData data)
     {
         OpenPopup();
         

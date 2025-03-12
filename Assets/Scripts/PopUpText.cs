@@ -34,7 +34,7 @@ public class PopUpText : MonoBehaviour
 
         //Debug.Log($"Enviando a chave que é : {inputfield.text}");
 
-        GoogleSheetsAPI.SendData(task, inputfield.text);
+        GoogleSheetsAPI.SendData(new TaskData(task, inputfield.text));
 
         gameObject.SetActive(false);
     }

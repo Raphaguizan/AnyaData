@@ -2,25 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Data = GoogleSheetsAPI.Data;
-
 public class SaveLoadData
 {
     private static readonly string filePath = Path.Combine(Application.persistentDataPath, "saveData.json");
 
-    public static void SaveData(List<Data> data)
+    public static void SaveData(List<TaskData> data)
     {
         string json = JsonUtility.ToJson(new DataList(data), true);
         File.WriteAllText(filePath, json);
         Debug.Log("Data saved: " + json);
     }
 
-    public static List<Data> LoadData()
+    public static List<TaskData> LoadData()
     {
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            List<Data> data = JsonUtility.FromJson<DataList>(json).data;
+            List<TaskData> data = JsonUtility.FromJson<DataList>(json).data;
             Debug.Log("Data loaded: " + data + "JSON: " + json);
             return data;
         }
@@ -34,7 +32,7 @@ public class SaveLoadData
     [Serializable]
     public class DataList
     {
-        public List<Data> data;
-        public DataList(List<Data> data) {  this.data = data; }
+        public List<TaskData> data;
+        public DataList(List<TaskData> data) {  this.data = data; }
     }
 }

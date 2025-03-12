@@ -2,7 +2,6 @@ using UnityEngine;
 using Game.Util;
 using System.Collections;
 using System.Collections.Generic;
-using Data = GoogleSheetsAPI.Data;
 
 public class SaveDataManager : Singleton<SaveDataManager>
 {
@@ -10,8 +9,7 @@ public class SaveDataManager : Singleton<SaveDataManager>
     private float trySendDataDelay = 60f;
 
     private Coroutine activeLoop = null;
-    [SerializeField]
-    private List<Data> notSentDataList = new();
+    private List<TaskData> notSentDataList = new();
     private void Start()
     {
         notSentDataList = new();
@@ -41,7 +39,7 @@ public class SaveDataManager : Singleton<SaveDataManager>
         activeLoop = null;
     }
 
-    private void AutoSave(bool value, Data data)
+    private void AutoSave(bool value, TaskData data)
     {
         if (value)
         {
