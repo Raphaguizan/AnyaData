@@ -9,6 +9,8 @@ public class PopUpText : MonoBehaviour
     private TMP_InputField inputfield;
     [SerializeField]
     private GameObject errorText;
+    [SerializeField]
+    private string task;
     void Start()
     {
         gameObject.SetActive(false);
@@ -30,9 +32,9 @@ public class PopUpText : MonoBehaviour
         }
 
 
-        Debug.Log($"Enviando a chave que é : {inputfield.text}");
+        //Debug.Log($"Enviando a chave que é : {inputfield.text}");
 
-        // sendInformation
+        GoogleSheetsAPI.SendData(task, inputfield.text);
 
         gameObject.SetActive(false);
     }

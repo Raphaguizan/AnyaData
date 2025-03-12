@@ -11,13 +11,20 @@ public class GoogleSheetsAPI : Singleton<GoogleSheetsAPI>
 
     public static void SendData(string task, string eat = "", string suckle = "")
     {
-        Instance.StartCoroutine(Instance.SendDataCoroutine(DateTime.Now, task, eat, suckle));
+        SendData(new Data(task, eat, suckle));
+    }
+    public static void SendData(DateTime dateTime, string task, string eat = "", string suckle = "")
+    {
+        SendData(new Data(dateTime, task, eat, suckle));
+    }
+    public static void SendData(Data data)
+    {
+        Instance.StartCoroutine(Instance.SendDataCoroutine(data));
     }
 
-    IEnumerator SendDataCoroutine(DateTime dateTime, string task, string eat, string suckle)
+    IEnumerator SendDataCoroutine(Data data)
     {
-        string dateTimeStr = dateTime.ToString("yyyy-MM-dd HH:mm:ss"); // Formato padr?o de data/hora
-        string jsonData = JsonUtility.ToJson(new Data(dateTimeStr, task, eat, suckle));
+        string jsonData = JsonUtility.ToJson(data);
 
         Debug.Log("Enviando JSON: " + jsonData);
         using (UnityWebRequest www = UnityWebRequest.PostWwwForm(url, jsonData))
@@ -37,7 +44,7 @@ public class GoogleSheetsAPI : Singleton<GoogleSheetsAPI>
     }
 
     [Serializable]
-    private class Data
+    public class Data
     {
         public string date_time;
         public string task;
@@ -47,6 +54,20 @@ public class GoogleSheetsAPI : Singleton<GoogleSheetsAPI>
         public Data(string date_time, string task, string eat, string suckle)
         {
             this.date_time = date_time;
+            this.task = task;
+            this.eat = eat;
+            this.suckle = suckle;
+        }
+        public Data(DateTime dateTime, string task, string eat, string suckle)
+        {
+            this.date_time = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+            this.task = task;
+            this.eat = eat;
+            this.suckle = suckle;
+        }
+        public Data(string task, string eat, string suckle)
+        {
+            this.date_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             this.task = task;
             this.eat = eat;
             this.suckle = suckle;

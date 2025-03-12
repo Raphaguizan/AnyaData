@@ -19,9 +19,8 @@ public class PopUpButtons : MonoBehaviour
 
     private void OnButtonClick(GameObject button)
     {
-        string myKey = button.GetComponent<ButtonScript>().Key;
-        // envia chave escolhida
-        Debug.Log($"Enviando a chave myKey que é : {myKey}");
+        ButtonScript mybutton = button.GetComponent<ButtonScript>();
+        GoogleSheetsAPI.SendData(mybutton.Task, "", mybutton.Suckle);
         gameObject.SetActive(false);
     }
 
