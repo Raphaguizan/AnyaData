@@ -1596,7 +1596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 16.979187, y: 3.7057}
+  m_AnchoredPosition: {x: 16.979248, y: 3.7057}
   m_SizeDelta: {x: -261.4949, y: 818.9197}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956827309
@@ -1895,7 +1895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1709618682835948145, guid: f596227f14f73d14eaa70728ede552a8, type: 3}
       propertyPath: task
-      value: Trocou Frauda
+      value: Trocou Fralda
       objectReference: {fileID: 0}
     - target: {fileID: 1709618682835948145, guid: f596227f14f73d14eaa70728ede552a8, type: 3}
       propertyPath: buttonKey
@@ -1907,7 +1907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6986408183031790156, guid: f596227f14f73d14eaa70728ede552a8, type: 3}
       propertyPath: m_text
-      value: Trocou Frauda
+      value: Trocou Fralda
       objectReference: {fileID: 0}
     - target: {fileID: 6986408183031790156, guid: f596227f14f73d14eaa70728ede552a8, type: 3}
       propertyPath: m_fontSize
@@ -4033,7 +4033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 11.319519, y: 9.365498}
+  m_AnchoredPosition: {x: 11.31958, y: 9.365498}
   m_SizeDelta: {x: -267.1545, y: 830.2391}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1681662102555270452
