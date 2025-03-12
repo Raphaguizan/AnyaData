@@ -3,17 +3,14 @@ using UnityEngine;
 public class ButtonScript : MonoBehaviour
 {
     [SerializeField]
-    private string buttonKey = "";
+    protected string buttonKey = "";
 
     public string Key => buttonKey;
-    void Start()
-    {
-        
-    }
 
-    public void ButtonCLick()
+    public virtual void ButtonCLick()
     {
-        Debug.Log(buttonKey);
+        //Debug.Log(buttonKey);
+        GoogleSheetsAPI.SendData(buttonKey);
     }
 
 }

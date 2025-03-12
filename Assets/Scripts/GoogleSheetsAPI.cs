@@ -9,9 +9,9 @@ public class GoogleSheetsAPI : Singleton<GoogleSheetsAPI>
     [SerializeField]
     private string url;
 
-    public static void SendData(DateTime dateTime, string task, string eat, string suckle)
+    public static void SendData(string task, string eat = "", string suckle = "")
     {
-        Instance.StartCoroutine(Instance.SendDataCoroutine(dateTime, task, eat, suckle));
+        Instance.StartCoroutine(Instance.SendDataCoroutine(DateTime.Now, task, eat, suckle));
     }
 
     IEnumerator SendDataCoroutine(DateTime dateTime, string task, string eat, string suckle)
