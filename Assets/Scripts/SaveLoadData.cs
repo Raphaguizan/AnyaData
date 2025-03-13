@@ -25,7 +25,7 @@ public class SaveLoadData
         else
         {
             Debug.LogWarning("No save file found.");
-            return null;
+            return new List<TaskData>();
         }
     }
 
