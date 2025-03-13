@@ -29,12 +29,12 @@ public class SaveDataManager : Singleton<SaveDataManager>
     {
         while (notSentDataList.Count > 0)
         {
-            yield return new WaitForSeconds(trySendDataDelay);
             for (int i = 0; i < notSentDataList.Count; i++)
             {
                 GoogleSheetsAPI.SendData(notSentDataList[i]);
                 yield return new WaitForEndOfFrame();
             }
+            yield return new WaitForSeconds(trySendDataDelay);
         }
         activeLoop = null;
     }
