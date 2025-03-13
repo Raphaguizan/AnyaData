@@ -68,6 +68,13 @@ public class SaveDataManager : Singleton<SaveDataManager>
     {
         SaveData();
     }
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+            LoadData();
+        else
+            SaveData();
+    }
 
     private void OnDestroy()
     {
