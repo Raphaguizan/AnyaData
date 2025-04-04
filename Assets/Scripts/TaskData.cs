@@ -47,4 +47,8 @@ public class TaskData
     {
         return $"data_hora:\n{date_time}\ntarefa: {task}\ncomeu: {eat}\nmamou: {suckle}";
     }
+    public string ToStringNoDate()
+    {
+        return $"tarefa: {task}\ncomeu: {eat}\nmamou: {suckle}";
+    }
 }

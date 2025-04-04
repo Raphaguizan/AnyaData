@@ -19,12 +19,12 @@ public class SaveLoadData
         {
             string json = File.ReadAllText(filePath);
             List<TaskData> data = JsonUtility.FromJson<DataList>(json).data;
-            Debug.Log("Data loaded: " + data + "JSON: " + json);
+            //Debug.Log("Data loaded: " + data + "JSON: " + json);
             return data;
         }
         else
         {
-            Debug.LogWarning("No save file found.");
+            //Debug.LogWarning("No save file found.");
             return new List<TaskData>();
         }
     }
