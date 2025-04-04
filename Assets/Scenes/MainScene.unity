@@ -2678,6 +2678,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 466687920}
     m_Modifications:
+    - target: {fileID: 157956649830288293, guid: d82cc36249768a949a3b23587000f5bf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2475445258403429829, guid: d82cc36249768a949a3b23587000f5bf, type: 3}
       propertyPath: m_Name
       value: PopUpText
@@ -3221,7 +3225,7 @@ GameObject:
   - component: {fileID: 1686567470}
   - component: {fileID: 1686567469}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: DateTimeInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3675,10 +3679,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 466687920}
     m_Modifications:
-    - target: {fileID: 2327237552729381132, guid: 886a7f90ca74865438a6c23e26f5bda7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 3.092041
-      objectReference: {fileID: 0}
     - target: {fileID: 4186990232610173087, guid: 886a7f90ca74865438a6c23e26f5bda7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3751,18 +3751,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5479361182668892486, guid: 886a7f90ca74865438a6c23e26f5bda7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 12.781738
-      objectReference: {fileID: 0}
-    - target: {fileID: 6716438702886141538, guid: 886a7f90ca74865438a6c23e26f5bda7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00024414062
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578846676270891831, guid: 886a7f90ca74865438a6c23e26f5bda7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 3.0908203
-      objectReference: {fileID: 0}
+    - target: {fileID: 6217041987254909348, guid: 886a7f90ca74865438a6c23e26f5bda7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 806546491}
     - target: {fileID: 7996995888725295824, guid: 886a7f90ca74865438a6c23e26f5bda7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -7,7 +9,7 @@ public class PopUpButtons : MonoBehaviour
 {
     [SerializeField]
     private List<Button> buttons;
-    
+
     void Start()
     {
         foreach (var button in buttons)
