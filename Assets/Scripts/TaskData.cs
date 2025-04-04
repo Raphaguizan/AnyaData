@@ -45,10 +45,10 @@ public class TaskData
     }
     public override string ToString()
     {
-        return $"data_hora:\n{date_time}\ntarefa: {task}\ncomeu: {eat}\nmamou: {suckle}";
+        return $"data_hora: {date_time}\ntarefa:    {task}\ncomeu:     {eat}\nmamou:     {suckle}";
     }
     public string ToStringNoDate()
     {
-        return $"tarefa: {task}\ncomeu: {eat}\nmamou: {suckle}";
+        return $"tarefa: {task}\ncomeu:  {eat}\nmamou:  {suckle}";
     }
 }
