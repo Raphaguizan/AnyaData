@@ -10,8 +10,9 @@ public class ConfirmPopUp : Singleton<ConfirmPopUp>
 
     [SerializeField]
     private TextMeshProUGUI data_tmp;
+
     [SerializeField]
-    private TMP_InputField date_tmp_input;
+    private DateUIInput uiInput;
 
     private TaskData _taskData;
 
@@ -24,17 +25,13 @@ public class ConfirmPopUp : Singleton<ConfirmPopUp>
     {
         Instance._taskData = data;
         Instance.data_tmp.text = data.ToStringNoDate();
-        Instance.date_tmp_input.text = data.date_time;
+        Instance.uiInput.SetDate(data.date_time);
         Instance.popup.SetActive(true);
-    }
-
-    public void UpdateDate(string newVal)
-    {
-        _taskData.date_time = newVal;
     }
 
     public void Confim()
     {
+        _taskData.date_time = uiInput.GetDate();
         //Debug.Log(_taskData.ToString());
         GoogleSheetsAPI.SendData(_taskData);
         Close();
