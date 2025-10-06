@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AnyaRosto1_0: 3119579656789147451
+      AnyaRosto1_1: 1223508182917078863
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
